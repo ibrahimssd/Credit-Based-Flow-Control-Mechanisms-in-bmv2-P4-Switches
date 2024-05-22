@@ -1,0 +1,5023 @@
+{
+  "header_types" : [
+    {
+      "name" : "scalars_0",
+      "id" : 0,
+      "fields" : [
+        ["tmp", 1, false],
+        ["add_credit_tmp", 112, false],
+        ["add_credit_floWeight", 8, false],
+        ["sub_credit_tmp", 112, false],
+        ["get_credit_tmp", 112, false],
+        ["initialize_reg_tmp", 112, false],
+        ["tmp_1", 32, false],
+        ["tmp_0", 112, false],
+        ["tmp_id_0", 32, false],
+        ["tmp_status_0", 8, false],
+        ["floID_0", 32, false],
+        ["credit_val_0", 32, false],
+        ["stat_0", 8, false],
+        ["ipv4dst_0", 32, false],
+        ["compute_queue_usage_tmp", 112, false],
+        ["compute_queue_usage_tmp_id", 32, false],
+        ["metadata._toCPU_ingPort0", 16, false],
+        ["metadata._toCPU_dstIP1", 32, false],
+        ["metadata._toCPU_flowID2", 32, false],
+        ["metadata._switch_id3", 32, false],
+        ["metadata._flowID4", 32, false],
+        ["metadata._floWeight5", 8, false],
+        ["metadata._switch_type6", 4, false],
+        ["metadata._available_cred7", 32, false],
+        ["metadata._computed_cred8", 32, false],
+        ["metadata._status9", 8, false],
+        ["metadata._drop10", 1, false],
+        ["_padding_0", 2, false]
+      ]
+    },
+    {
+      "name" : "standard_metadata",
+      "id" : 1,
+      "fields" : [
+        ["ingress_port", 9, false],
+        ["egress_spec", 9, false],
+        ["egress_port", 9, false],
+        ["instance_type", 32, false],
+        ["packet_length", 32, false],
+        ["enq_timestamp", 32, false],
+        ["enq_qdepth", 19, false],
+        ["deq_timedelta", 32, false],
+        ["deq_qdepth", 19, false],
+        ["ingress_global_timestamp", 48, false],
+        ["egress_global_timestamp", 48, false],
+        ["mcast_grp", 16, false],
+        ["egress_rid", 16, false],
+        ["checksum_error", 1, false],
+        ["parser_error", 32, false],
+        ["priority", 3, false],
+        ["_padding", 3, false]
+      ]
+    },
+    {
+      "name" : "ethernet_t",
+      "id" : 2,
+      "fields" : [
+        ["dstAddr", 48, false],
+        ["srcAddr", 48, false],
+        ["etherType", 16, false]
+      ]
+    },
+    {
+      "name" : "arp_t",
+      "id" : 3,
+      "fields" : [
+        ["hardware_type", 16, false],
+        ["protocol_type", 16, false],
+        ["hardware_length", 8, false],
+        ["protocol_length", 8, false],
+        ["op_code", 16, false],
+        ["sender_hAddress", 48, false],
+        ["sender_pAddress", 32, false],
+        ["target_hAddress", 48, false],
+        ["target_pAddress", 32, false]
+      ]
+    },
+    {
+      "name" : "ipv4_t",
+      "id" : 4,
+      "fields" : [
+        ["version", 4, false],
+        ["ihl", 4, false],
+        ["diffserv", 8, false],
+        ["totalLen", 16, false],
+        ["identification", 16, false],
+        ["flags", 3, false],
+        ["fragOffset", 13, false],
+        ["ttl", 8, false],
+        ["protocol", 8, false],
+        ["hdrChecksum", 16, false],
+        ["srcAddr", 32, false],
+        ["dstAddr", 32, false]
+      ]
+    },
+    {
+      "name" : "ipv4_option_t",
+      "id" : 5,
+      "fields" : [
+        ["copyFlag", 3, false],
+        ["optClass", 5, false],
+        ["option", 8, false],
+        ["optionLength", 8, false]
+      ]
+    },
+    {
+      "name" : "credit_t",
+      "id" : 6,
+      "fields" : [
+        ["creditValue", 32, false],
+        ["flow_id", 32, false],
+        ["status", 8, false]
+      ]
+    }
+  ],
+  "headers" : [
+    {
+      "name" : "scalars",
+      "id" : 0,
+      "header_type" : "scalars_0",
+      "metadata" : true,
+      "pi_omit" : true
+    },
+    {
+      "name" : "standard_metadata",
+      "id" : 1,
+      "header_type" : "standard_metadata",
+      "metadata" : true,
+      "pi_omit" : true
+    },
+    {
+      "name" : "ethernet",
+      "id" : 2,
+      "header_type" : "ethernet_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "arp",
+      "id" : 3,
+      "header_type" : "arp_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "ipv4",
+      "id" : 4,
+      "header_type" : "ipv4_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "ipv4_option",
+      "id" : 5,
+      "header_type" : "ipv4_option_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "credit",
+      "id" : 6,
+      "header_type" : "credit_t",
+      "metadata" : false,
+      "pi_omit" : true
+    }
+  ],
+  "header_stacks" : [],
+  "header_union_types" : [],
+  "header_unions" : [],
+  "header_union_stacks" : [],
+  "field_lists" : [
+    {
+      "id" : 1,
+      "name" : "field_list2",
+      "elements" : [
+        {
+          "type" : "field",
+          "value" : ["scalars", "metadata._toCPU_ingPort0"]
+        },
+        {
+          "type" : "field",
+          "value" : ["scalars", "metadata._toCPU_dstIP1"]
+        },
+        {
+          "type" : "field",
+          "value" : ["scalars", "metadata._toCPU_flowID2"]
+        }
+      ]
+    }
+  ],
+  "errors" : [
+    ["NoError", 0],
+    ["PacketTooShort", 1],
+    ["NoMatch", 2],
+    ["StackOutOfBounds", 3],
+    ["HeaderTooShort", 4],
+    ["ParserTimeout", 5],
+    ["ParserInvalidArgument", 6],
+    ["IPHeaderTooShort", 7]
+  ],
+  "enums" : [],
+  "parsers" : [
+    {
+      "name" : "parser",
+      "id" : 0,
+      "init_state" : "start",
+      "parse_states" : [
+        {
+          "name" : "start",
+          "id" : 0,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "ethernet"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x0806",
+              "mask" : null,
+              "next_state" : "parse_arp"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0800",
+              "mask" : null,
+              "next_state" : "parse_ipv4"
+            },
+            {
+              "type" : "default",
+              "value" : null,
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "etherType"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_arp",
+          "id" : 1,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "arp"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "default",
+              "value" : null,
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : []
+        },
+        {
+          "name" : "parse_ipv4",
+          "id" : 2,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "ipv4"
+                }
+              ],
+              "op" : "extract"
+            },
+            {
+              "parameters" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp"]
+                },
+                {
+                  "type" : "expression",
+                  "value" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "b2d",
+                      "left" : null,
+                      "right" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : ">=",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["ipv4", "ihl"]
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0x05"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              ],
+              "op" : "set"
+            },
+            {
+              "parameters" : [
+                {
+                  "type" : "expression",
+                  "value" : {
+                    "op" : "d2b",
+                    "left" : null,
+                    "right" : {
+                      "type" : "field",
+                      "value" : ["scalars", "tmp"]
+                    }
+                  }
+                },
+                {
+                  "type" : "hexstr",
+                  "value" : "0x7"
+                }
+              ],
+              "op" : "verify"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x05",
+              "mask" : null,
+              "next_state" : null
+            },
+            {
+              "type" : "default",
+              "value" : null,
+              "mask" : null,
+              "next_state" : "parse_ipv4_option"
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "ihl"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_ipv4_option",
+          "id" : 3,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "ipv4_option"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x31",
+              "mask" : null,
+              "next_state" : "parse_credit"
+            },
+            {
+              "type" : "default",
+              "value" : null,
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4_option", "option"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_credit",
+          "id" : 4,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "credit"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "default",
+              "value" : null,
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : []
+        }
+      ]
+    }
+  ],
+  "parse_vsets" : [],
+  "deparsers" : [
+    {
+      "name" : "deparser",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+        "line" : 886,
+        "column" : 8,
+        "source_fragment" : "MyDeparser"
+      },
+      "order" : ["ethernet", "arp", "ipv4", "ipv4_option", "credit"],
+      "primitives" : []
+    }
+  ],
+  "meter_arrays" : [],
+  "counter_arrays" : [],
+  "register_arrays" : [
+    {
+      "name" : "ingress_register",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+        "line" : 68,
+        "column" : 23,
+        "source_fragment" : "ingress_register"
+      },
+      "size" : 10,
+      "bitwidth" : 112
+    },
+    {
+      "name" : "floWeight_register",
+      "id" : 1,
+      "source_info" : {
+        "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+        "line" : 77,
+        "column" : 21,
+        "source_fragment" : "floWeight_register"
+      },
+      "size" : 10,
+      "bitwidth" : 8
+    },
+    {
+      "name" : "cloning_flowID",
+      "id" : 2,
+      "source_info" : {
+        "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+        "line" : 93,
+        "column" : 21,
+        "source_fragment" : "cloning_flowID"
+      },
+      "size" : 1,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "status_register",
+      "id" : 3,
+      "source_info" : {
+        "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+        "line" : 105,
+        "column" : 21,
+        "source_fragment" : "status_register"
+      },
+      "size" : 10,
+      "bitwidth" : 8
+    },
+    {
+      "name" : "egress_register",
+      "id" : 4,
+      "source_info" : {
+        "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+        "line" : 119,
+        "column" : 23,
+        "source_fragment" : "egress_register"
+      },
+      "size" : 10,
+      "bitwidth" : 112
+    }
+  ],
+  "calculations" : [
+    {
+      "name" : "calc",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+        "line" : 864,
+        "column" : 1,
+        "source_fragment" : "update_checksum( ..."
+      },
+      "algo" : "csum16",
+      "input" : [
+        {
+          "type" : "field",
+          "value" : ["ipv4", "version"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "ihl"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "diffserv"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "totalLen"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "identification"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "flags"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "fragOffset"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "ttl"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "protocol"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "srcAddr"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "dstAddr"]
+        }
+      ]
+    }
+  ],
+  "learn_lists" : [],
+  "actions" : [
+    {
+      "name" : "NoAction",
+      "id" : 0,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 1,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 2,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "MyIngress.drop",
+      "id" : 3,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 412,
+            "column" : 4,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._drop10"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "b2d",
+                  "left" : null,
+                  "right" : {
+                    "type" : "bool",
+                    "value" : true
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 413,
+            "column" : 4,
+            "source_fragment" : "meta.drop = true"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.drop",
+      "id" : 4,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 412,
+            "column" : 4,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._drop10"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "b2d",
+                  "left" : null,
+                  "right" : {
+                    "type" : "bool",
+                    "value" : true
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 413,
+            "column" : 4,
+            "source_fragment" : "meta.drop = true"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.ipv4_forward",
+      "id" : 5,
+      "runtime_data" : [
+        {
+          "name" : "port",
+          "bitwidth" : 9
+        },
+        {
+          "name" : "swid",
+          "bitwidth" : 32
+        },
+        {
+          "name" : "flowid",
+          "bitwidth" : 32
+        },
+        {
+          "name" : "floweight",
+          "bitwidth" : 8
+        },
+        {
+          "name" : "natureId",
+          "bitwidth" : 4
+        }
+      ],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "egress_spec"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 421,
+            "column" : 4,
+            "source_fragment" : "standard_metadata.egress_spec = port"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._switch_id3"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 1
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 424,
+            "column" : 4,
+            "source_fragment" : "meta.switch_id = swid"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._flowID4"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 2
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 431,
+            "column" : 4,
+            "source_fragment" : "meta.flowID = flowid"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._switch_type6"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 4
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 433,
+            "column" : 4,
+            "source_fragment" : "meta.switch_type= natureId"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._floWeight5"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 3
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 435,
+            "column" : 4,
+            "source_fragment" : "meta.floWeight = floweight"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "floWeight_register"
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 2
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 3
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 437,
+            "column" : 4,
+            "source_fragment" : "floWeight_register.write((bit<32>) flowid, (bit<8>) floweight)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.arp_forward",
+      "id" : 6,
+      "runtime_data" : [
+        {
+          "name" : "port",
+          "bitwidth" : 9
+        }
+      ],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "egress_spec"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 447,
+            "column" : 4,
+            "source_fragment" : "standard_metadata.egress_spec=port"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "clone315",
+      "id" : 7,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "initialize_reg_tmp"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "ingress_register"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._flowID4"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 315,
+            "column" : 8,
+            "source_fragment" : "ingress_register.read(tmp, flowid)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "initialize_reg_tmp"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "|",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["scalars", "initialize_reg_tmp"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xffffffffffffffffffff00000000"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x0000000000000000000000000001"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 316,
+            "column" : 8,
+            "source_fragment" : "tmp[31:0]=1"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "ingress_register"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._flowID4"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "initialize_reg_tmp"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 318,
+            "column" : 8,
+            "source_fragment" : "ingress_register.write((bit<32>) flowid, tmp)"
+          }
+        },
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 510,
+            "column" : 28,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._drop10"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "b2d",
+                  "left" : null,
+                  "right" : {
+                    "type" : "bool",
+                    "value" : true
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 511,
+            "column" : 28,
+            "source_fragment" : "meta.drop = true"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "clone371",
+      "id" : 8,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "sub_credit_tmp"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "ingress_register"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._flowID4"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 371,
+            "column" : 8,
+            "source_fragment" : "ingress_register.read(tmp, (bit<32>) flowid)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "sub_credit_tmp"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "|",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["scalars", "sub_credit_tmp"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xffffffffffffffffffff00000000"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : "&",
+                              "left" : {
+                                "type" : "expression",
+                                "value" : {
+                                  "op" : "+",
+                                  "left" : {
+                                    "type" : "expression",
+                                    "value" : {
+                                      "op" : "&",
+                                      "left" : {
+                                        "type" : "field",
+                                        "value" : ["scalars", "sub_credit_tmp"]
+                                      },
+                                      "right" : {
+                                        "type" : "hexstr",
+                                        "value" : "0xffffffff"
+                                      }
+                                    }
+                                  },
+                                  "right" : {
+                                    "type" : "hexstr",
+                                    "value" : "0xffffffff"
+                                  }
+                                }
+                              },
+                              "right" : {
+                                "type" : "hexstr",
+                                "value" : "0xffffffff"
+                              }
+                            }
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xffffffffffffffffffffffffffff"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x00000000000000000000ffffffff"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 377,
+            "column" : 8,
+            "source_fragment" : "tmp[31:0] = curr_credit"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "ingress_register"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._flowID4"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "sub_credit_tmp"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 378,
+            "column" : 8,
+            "source_fragment" : "ingress_register.write(flowid, tmp)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "clone294",
+      "id" : 9,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "get_credit_tmp"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "ingress_register"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._flowID4"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 294,
+            "column" : 8,
+            "source_fragment" : "ingress_register.read(tmp, (bit<32>) flowid)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._available_cred7"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["scalars", "metadata._available_cred7"]
+                      },
+                      "right" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["scalars", "get_credit_tmp"]
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xffffffff"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 295,
+            "column" : 28,
+            "source_fragment" : "= meta.available_cred + tmp[31:0]; ..."
+          }
+        }
+      ]
+    },
+    {
+      "name" : "clone340",
+      "id" : 10,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "add_credit_floWeight"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "floWeight_register"
+            },
+            {
+              "type" : "field",
+              "value" : ["credit", "flow_id"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 340,
+            "column" : 8,
+            "source_fragment" : "floWeight_register.read(floWeight, (bit<32>) flowid)"
+          }
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "add_credit_tmp"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "ingress_register"
+            },
+            {
+              "type" : "field",
+              "value" : ["credit", "flow_id"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 342,
+            "column" : 8,
+            "source_fragment" : "ingress_register.read(tmp,(bit<32>) flowid)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "add_credit_tmp"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "|",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["scalars", "add_credit_tmp"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xffffffffffffffffffff00000000"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : "&",
+                              "left" : {
+                                "type" : "expression",
+                                "value" : {
+                                  "op" : ">>",
+                                  "left" : {
+                                    "type" : "field",
+                                    "value" : ["credit", "creditValue"]
+                                  },
+                                  "right" : {
+                                    "type" : "expression",
+                                    "value" : {
+                                      "op" : "&",
+                                      "left" : {
+                                        "type" : "expression",
+                                        "value" : {
+                                          "op" : ">>",
+                                          "left" : {
+                                            "type" : "field",
+                                            "value" : ["scalars", "add_credit_floWeight"]
+                                          },
+                                          "right" : {
+                                            "type" : "hexstr",
+                                            "value" : "0x2"
+                                          }
+                                        }
+                                      },
+                                      "right" : {
+                                        "type" : "hexstr",
+                                        "value" : "0xff"
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "right" : {
+                                "type" : "hexstr",
+                                "value" : "0xffffffff"
+                              }
+                            }
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xffffffffffffffffffffffffffff"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x00000000000000000000ffffffff"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 349,
+            "column" : 8,
+            "source_fragment" : "tmp[31:0] = credits"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "ingress_register"
+            },
+            {
+              "type" : "field",
+              "value" : ["credit", "flow_id"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "add_credit_tmp"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 351,
+            "column" : 8,
+            "source_fragment" : "ingress_register.write((bit<32>) flowid, tmp)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "NoAction",
+      "id" : 11,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "MyEgress.clear_ttl",
+      "id" : 12,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "ttl"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 720,
+            "column" : 7,
+            "source_fragment" : "hdr.ipv4.ttl =0"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyEgress.swap_addr",
+      "id" : 13,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "ipv4dst_0"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ipv4", "dstAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 724,
+            "column" : 9,
+            "source_fragment" : "bit<32> ipv4dst= hdr.ipv4.dstAddr;"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "dstAddr"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ipv4", "srcAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 729,
+            "column" : 9,
+            "source_fragment" : "hdr.ipv4.dstAddr= hdr.ipv4.srcAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "srcAddr"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "ipv4dst_0"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 730,
+            "column" : 9,
+            "source_fragment" : "hdr.ipv4.srcAddr= ipv4dst"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyEgress.clone_packet",
+      "id" : 14,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_1"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "ingress_port"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 738,
+            "column" : 50,
+            "source_fragment" : "(bit<32>) standard_metadata.ingress_port"
+          }
+        },
+        {
+          "op" : "clone_egress_pkt_to_egress",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_1"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x1"
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 738,
+            "column" : 8,
+            "source_fragment" : "clone_preserving_field_list(CloneType.E2E,(bit<32>) standard_metadata.ingress_port, CLONE_FL_1)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyEgress.truncate_packet",
+      "id" : 15,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "truncate",
+          "parameters" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x0000002e"
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 747,
+            "column" : 8,
+            "source_fragment" : "truncate((bit<32>)new_length)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyEgress.append_credit_header",
+      "id" : 16,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "add_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "credit"
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 753,
+            "column" : 8,
+            "source_fragment" : "hdr.credit.setValid()"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["credit", "creditValue"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "credit_val_0"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 754,
+            "column" : 8,
+            "source_fragment" : "hdr.credit.creditValue = credit_value"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["credit", "flow_id"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "floID_0"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 755,
+            "column" : 8,
+            "source_fragment" : "hdr.credit.flow_id= ID"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["credit", "status"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "stat_0"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 756,
+            "column" : 8,
+            "source_fragment" : "hdr.credit.status = status"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyEgress.append_option_header",
+      "id" : 17,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "add_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "ipv4_option"
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 763,
+            "column" : 7,
+            "source_fragment" : "hdr.ipv4_option.setValid()"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4_option", "option"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x31"
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 18,
+            "column" : 34,
+            "source_fragment" : "0x31; ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "ihl"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["ipv4", "ihl"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x01"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x0f"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 765,
+            "column" : 7,
+            "source_fragment" : "hdr.ipv4.ihl= hdr.ipv4.ihl+1"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "clone776",
+      "id" : 18,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_id_0"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "cloning_flowID"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 776,
+            "column" : 12,
+            "source_fragment" : "cloning_flowID.read(tmp_id,(bit<32>) 0)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "floID_0"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_id_0"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 777,
+            "column" : 12,
+            "source_fragment" : "floID = tmp_id"
+          }
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_0"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "egress_register"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_id_0"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 779,
+            "column" : 12,
+            "source_fragment" : "egress_register.read(tmp,(bit<32>) floID)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "credit_val_0"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["scalars", "tmp_0"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 780,
+            "column" : 12,
+            "source_fragment" : "credit_val = tmp[31:0]"
+          }
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_status_0"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "status_register"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_id_0"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 782,
+            "column" : 12,
+            "source_fragment" : "status_register.read(tmp_status,(bit<32>) floID)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "stat_0"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_status_0"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 783,
+            "column" : 12,
+            "source_fragment" : "stat = tmp_status"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "clone796",
+      "id" : 19,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_0"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "egress_register"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_id_0"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 796,
+            "column" : 12,
+            "source_fragment" : "egress_register.read(tmp,(bit<32>) floID)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_0"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "|",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["scalars", "tmp_0"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xffffffff000000000000ffffffff"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : "<<",
+                              "left" : {
+                                "type" : "expression",
+                                "value" : {
+                                  "op" : "&",
+                                  "left" : {
+                                    "type" : "field",
+                                    "value" : ["standard_metadata", "egress_global_timestamp"]
+                                  },
+                                  "right" : {
+                                    "type" : "hexstr",
+                                    "value" : "0xffffffffffffffffffffffffffff"
+                                  }
+                                }
+                              },
+                              "right" : {
+                                "type" : "hexstr",
+                                "value" : "0x20"
+                              }
+                            }
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xffffffffffffffffffffffffffff"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x00000000ffffffffffff00000000"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 797,
+            "column" : 12,
+            "source_fragment" : "tmp[79:32] = standard_metadata.egress_global_timestamp"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_0"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "|",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["scalars", "tmp_0"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xffffffffffffffffffff00000000"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["credit", "creditValue"]
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xffffffffffffffffffffffffffff"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x00000000000000000000ffffffff"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 798,
+            "column" : 12,
+            "source_fragment" : "tmp[31:0]= hdr.credit.creditValue"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "egress_register"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_id_0"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_0"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 799,
+            "column" : 12,
+            "source_fragment" : "egress_register.write((bit<32>) floID,tmp)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "clone593",
+      "id" : 20,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._computed_cred8"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 593,
+            "column" : 35,
+            "source_fragment" : "=0; ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._status9"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x01"
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 594,
+            "column" : 28,
+            "source_fragment" : "= 1; ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "compute_queue_usage_tmp"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "|",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["scalars", "compute_queue_usage_tmp"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xffffffffffffffffffff00000000"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x0000000000000000000000000000"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 597,
+            "column" : 16,
+            "source_fragment" : "tmp[31:0] = curr_credit"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "egress_register"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "compute_queue_usage_tmp_id"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "compute_queue_usage_tmp"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 598,
+            "column" : 16,
+            "source_fragment" : "egress_register.write((bit<32>)floID,tmp)"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "status_register"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "compute_queue_usage_tmp_id"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x01"
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 602,
+            "column" : 16,
+            "source_fragment" : "status_register.write((bit<32>)floID,tmp_status)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "clone615",
+      "id" : 21,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._computed_cred8"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "two_comp_mod",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "-",
+                          "left" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : "two_comp_mod",
+                              "left" : {
+                                "type" : "expression",
+                                "value" : {
+                                  "op" : ">>",
+                                  "left" : {
+                                    "type" : "expression",
+                                    "value" : {
+                                      "op" : "two_comp_mod",
+                                      "left" : {
+                                        "type" : "expression",
+                                        "value" : {
+                                          "op" : "<<",
+                                          "left" : {
+                                            "type" : "expression",
+                                            "value" : {
+                                              "op" : "two_comp_mod",
+                                              "left" : {
+                                                "type" : "expression",
+                                                "value" : {
+                                                  "op" : "&",
+                                                  "left" : {
+                                                    "type" : "expression",
+                                                    "value" : {
+                                                      "op" : "&",
+                                                      "left" : {
+                                                        "type" : "expression",
+                                                        "value" : {
+                                                          "op" : "-",
+                                                          "left" : {
+                                                            "type" : "hexstr",
+                                                            "value" : "0x002710"
+                                                          },
+                                                          "right" : {
+                                                            "type" : "field",
+                                                            "value" : ["standard_metadata", "deq_qdepth"]
+                                                          }
+                                                        }
+                                                      },
+                                                      "right" : {
+                                                        "type" : "hexstr",
+                                                        "value" : "0x07ffff"
+                                                      }
+                                                    }
+                                                  },
+                                                  "right" : {
+                                                    "type" : "hexstr",
+                                                    "value" : "0xffffffff"
+                                                  }
+                                                }
+                                              },
+                                              "right" : {
+                                                "type" : "hexstr",
+                                                "value" : "0x20"
+                                              }
+                                            }
+                                          },
+                                          "right" : {
+                                            "type" : "hexstr",
+                                            "value" : "0x1"
+                                          }
+                                        }
+                                      },
+                                      "right" : {
+                                        "type" : "hexstr",
+                                        "value" : "0x20"
+                                      }
+                                    }
+                                  },
+                                  "right" : {
+                                    "type" : "hexstr",
+                                    "value" : "0x3"
+                                  }
+                                }
+                              },
+                              "right" : {
+                                "type" : "hexstr",
+                                "value" : "0x20"
+                              }
+                            }
+                          },
+                          "right" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : "two_comp_mod",
+                              "left" : {
+                                "type" : "expression",
+                                "value" : {
+                                  "op" : ">>",
+                                  "left" : {
+                                    "type" : "expression",
+                                    "value" : {
+                                      "op" : "two_comp_mod",
+                                      "left" : {
+                                        "type" : "expression",
+                                        "value" : {
+                                          "op" : "<<",
+                                          "left" : {
+                                            "type" : "expression",
+                                            "value" : {
+                                              "op" : "two_comp_mod",
+                                              "left" : {
+                                                "type" : "expression",
+                                                "value" : {
+                                                  "op" : "&",
+                                                  "left" : {
+                                                    "type" : "expression",
+                                                    "value" : {
+                                                      "op" : "&",
+                                                      "left" : {
+                                                        "type" : "expression",
+                                                        "value" : {
+                                                          "op" : "-",
+                                                          "left" : {
+                                                            "type" : "hexstr",
+                                                            "value" : "0x002710"
+                                                          },
+                                                          "right" : {
+                                                            "type" : "field",
+                                                            "value" : ["standard_metadata", "deq_qdepth"]
+                                                          }
+                                                        }
+                                                      },
+                                                      "right" : {
+                                                        "type" : "hexstr",
+                                                        "value" : "0x07ffff"
+                                                      }
+                                                    }
+                                                  },
+                                                  "right" : {
+                                                    "type" : "hexstr",
+                                                    "value" : "0xffffffff"
+                                                  }
+                                                }
+                                              },
+                                              "right" : {
+                                                "type" : "hexstr",
+                                                "value" : "0x20"
+                                              }
+                                            }
+                                          },
+                                          "right" : {
+                                            "type" : "hexstr",
+                                            "value" : "0x1"
+                                          }
+                                        }
+                                      },
+                                      "right" : {
+                                        "type" : "hexstr",
+                                        "value" : "0x20"
+                                      }
+                                    }
+                                  },
+                                  "right" : {
+                                    "type" : "hexstr",
+                                    "value" : "0x6"
+                                  }
+                                }
+                              },
+                              "right" : {
+                                "type" : "hexstr",
+                                "value" : "0x20"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x20"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 615,
+            "column" : 39,
+            "source_fragment" : "= (bit<32>) diff; ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._status9"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x50"
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 616,
+            "column" : 32,
+            "source_fragment" : "= 80; //Hex=50 ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "compute_queue_usage_tmp"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "|",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["scalars", "compute_queue_usage_tmp"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xffffffffffffffffffff00000000"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : "&",
+                              "left" : {
+                                "type" : "expression",
+                                "value" : {
+                                  "op" : "two_comp_mod",
+                                  "left" : {
+                                    "type" : "expression",
+                                    "value" : {
+                                      "op" : "-",
+                                      "left" : {
+                                        "type" : "expression",
+                                        "value" : {
+                                          "op" : "two_comp_mod",
+                                          "left" : {
+                                            "type" : "expression",
+                                            "value" : {
+                                              "op" : ">>",
+                                              "left" : {
+                                                "type" : "expression",
+                                                "value" : {
+                                                  "op" : "two_comp_mod",
+                                                  "left" : {
+                                                    "type" : "expression",
+                                                    "value" : {
+                                                      "op" : "<<",
+                                                      "left" : {
+                                                        "type" : "expression",
+                                                        "value" : {
+                                                          "op" : "two_comp_mod",
+                                                          "left" : {
+                                                            "type" : "expression",
+                                                            "value" : {
+                                                              "op" : "&",
+                                                              "left" : {
+                                                                "type" : "expression",
+                                                                "value" : {
+                                                                  "op" : "&",
+                                                                  "left" : {
+                                                                    "type" : "expression",
+                                                                    "value" : {
+                                                                      "op" : "-",
+                                                                      "left" : {
+                                                                        "type" : "hexstr",
+                                                                        "value" : "0x002710"
+                                                                      },
+                                                                      "right" : {
+                                                                        "type" : "field",
+                                                                        "value" : ["standard_metadata", "deq_qdepth"]
+                                                                      }
+                                                                    }
+                                                                  },
+                                                                  "right" : {
+                                                                    "type" : "hexstr",
+                                                                    "value" : "0x07ffff"
+                                                                  }
+                                                                }
+                                                              },
+                                                              "right" : {
+                                                                "type" : "hexstr",
+                                                                "value" : "0xffffffff"
+                                                              }
+                                                            }
+                                                          },
+                                                          "right" : {
+                                                            "type" : "hexstr",
+                                                            "value" : "0x20"
+                                                          }
+                                                        }
+                                                      },
+                                                      "right" : {
+                                                        "type" : "hexstr",
+                                                        "value" : "0x1"
+                                                      }
+                                                    }
+                                                  },
+                                                  "right" : {
+                                                    "type" : "hexstr",
+                                                    "value" : "0x20"
+                                                  }
+                                                }
+                                              },
+                                              "right" : {
+                                                "type" : "hexstr",
+                                                "value" : "0x3"
+                                              }
+                                            }
+                                          },
+                                          "right" : {
+                                            "type" : "hexstr",
+                                            "value" : "0x20"
+                                          }
+                                        }
+                                      },
+                                      "right" : {
+                                        "type" : "expression",
+                                        "value" : {
+                                          "op" : "two_comp_mod",
+                                          "left" : {
+                                            "type" : "expression",
+                                            "value" : {
+                                              "op" : ">>",
+                                              "left" : {
+                                                "type" : "expression",
+                                                "value" : {
+                                                  "op" : "two_comp_mod",
+                                                  "left" : {
+                                                    "type" : "expression",
+                                                    "value" : {
+                                                      "op" : "<<",
+                                                      "left" : {
+                                                        "type" : "expression",
+                                                        "value" : {
+                                                          "op" : "two_comp_mod",
+                                                          "left" : {
+                                                            "type" : "expression",
+                                                            "value" : {
+                                                              "op" : "&",
+                                                              "left" : {
+                                                                "type" : "expression",
+                                                                "value" : {
+                                                                  "op" : "&",
+                                                                  "left" : {
+                                                                    "type" : "expression",
+                                                                    "value" : {
+                                                                      "op" : "-",
+                                                                      "left" : {
+                                                                        "type" : "hexstr",
+                                                                        "value" : "0x002710"
+                                                                      },
+                                                                      "right" : {
+                                                                        "type" : "field",
+                                                                        "value" : ["standard_metadata", "deq_qdepth"]
+                                                                      }
+                                                                    }
+                                                                  },
+                                                                  "right" : {
+                                                                    "type" : "hexstr",
+                                                                    "value" : "0x07ffff"
+                                                                  }
+                                                                }
+                                                              },
+                                                              "right" : {
+                                                                "type" : "hexstr",
+                                                                "value" : "0xffffffff"
+                                                              }
+                                                            }
+                                                          },
+                                                          "right" : {
+                                                            "type" : "hexstr",
+                                                            "value" : "0x20"
+                                                          }
+                                                        }
+                                                      },
+                                                      "right" : {
+                                                        "type" : "hexstr",
+                                                        "value" : "0x1"
+                                                      }
+                                                    }
+                                                  },
+                                                  "right" : {
+                                                    "type" : "hexstr",
+                                                    "value" : "0x20"
+                                                  }
+                                                }
+                                              },
+                                              "right" : {
+                                                "type" : "hexstr",
+                                                "value" : "0x6"
+                                              }
+                                            }
+                                          },
+                                          "right" : {
+                                            "type" : "hexstr",
+                                            "value" : "0x20"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "right" : {
+                                    "type" : "hexstr",
+                                    "value" : "0x20"
+                                  }
+                                }
+                              },
+                              "right" : {
+                                "type" : "hexstr",
+                                "value" : "0xffffffff"
+                              }
+                            }
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xffffffffffffffffffffffffffff"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x00000000000000000000ffffffff"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 619,
+            "column" : 20,
+            "source_fragment" : "tmp[31:0] = curr_credit"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "egress_register"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "compute_queue_usage_tmp_id"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "compute_queue_usage_tmp"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 620,
+            "column" : 20,
+            "source_fragment" : "egress_register.write((bit<32>)floID,tmp)"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "status_register"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "compute_queue_usage_tmp_id"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x50"
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 624,
+            "column" : 20,
+            "source_fragment" : "status_register.write((bit<32>)floID,tmp_status)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "clone630",
+      "id" : 22,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._computed_cred8"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "-",
+                          "left" : {
+                            "type" : "hexstr",
+                            "value" : "0x002710"
+                          },
+                          "right" : {
+                            "type" : "field",
+                            "value" : ["standard_metadata", "deq_qdepth"]
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x07ffff"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 630,
+            "column" : 39,
+            "source_fragment" : "= computed_credits; //(bit<32>) (queu_depth_limit - standard_metadata.deq_qdepth); ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._status9"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0a"
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 631,
+            "column" : 32,
+            "source_fragment" : "= 10; //Hex =0a ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "compute_queue_usage_tmp"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "|",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["scalars", "compute_queue_usage_tmp"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xffffffffffffffffffff00000000"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : "&",
+                              "left" : {
+                                "type" : "expression",
+                                "value" : {
+                                  "op" : "&",
+                                  "left" : {
+                                    "type" : "expression",
+                                    "value" : {
+                                      "op" : "-",
+                                      "left" : {
+                                        "type" : "hexstr",
+                                        "value" : "0x002710"
+                                      },
+                                      "right" : {
+                                        "type" : "field",
+                                        "value" : ["standard_metadata", "deq_qdepth"]
+                                      }
+                                    }
+                                  },
+                                  "right" : {
+                                    "type" : "hexstr",
+                                    "value" : "0x07ffff"
+                                  }
+                                }
+                              },
+                              "right" : {
+                                "type" : "hexstr",
+                                "value" : "0xffffffff"
+                              }
+                            }
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xffffffffffffffffffffffffffff"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x00000000000000000000ffffffff"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 634,
+            "column" : 20,
+            "source_fragment" : "tmp[31:0] = curr_credit"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "egress_register"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "compute_queue_usage_tmp_id"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "compute_queue_usage_tmp"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 635,
+            "column" : 20,
+            "source_fragment" : "egress_register.write((bit<32>)floID,tmp)"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "status_register"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "compute_queue_usage_tmp_id"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0a"
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 639,
+            "column" : 20,
+            "source_fragment" : "status_register.write((bit<32>)floID,tmp_status)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "clone647",
+      "id" : 23,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._computed_cred8"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "two_comp_mod",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "-",
+                          "left" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : "two_comp_mod",
+                              "left" : {
+                                "type" : "expression",
+                                "value" : {
+                                  "op" : ">>",
+                                  "left" : {
+                                    "type" : "expression",
+                                    "value" : {
+                                      "op" : "two_comp_mod",
+                                      "left" : {
+                                        "type" : "expression",
+                                        "value" : {
+                                          "op" : "*",
+                                          "left" : {
+                                            "type" : "hexstr",
+                                            "value" : "0x00000006"
+                                          },
+                                          "right" : {
+                                            "type" : "expression",
+                                            "value" : {
+                                              "op" : "two_comp_mod",
+                                              "left" : {
+                                                "type" : "expression",
+                                                "value" : {
+                                                  "op" : "&",
+                                                  "left" : {
+                                                    "type" : "expression",
+                                                    "value" : {
+                                                      "op" : "&",
+                                                      "left" : {
+                                                        "type" : "expression",
+                                                        "value" : {
+                                                          "op" : "-",
+                                                          "left" : {
+                                                            "type" : "hexstr",
+                                                            "value" : "0x002710"
+                                                          },
+                                                          "right" : {
+                                                            "type" : "field",
+                                                            "value" : ["standard_metadata", "deq_qdepth"]
+                                                          }
+                                                        }
+                                                      },
+                                                      "right" : {
+                                                        "type" : "hexstr",
+                                                        "value" : "0x07ffff"
+                                                      }
+                                                    }
+                                                  },
+                                                  "right" : {
+                                                    "type" : "hexstr",
+                                                    "value" : "0xffffffff"
+                                                  }
+                                                }
+                                              },
+                                              "right" : {
+                                                "type" : "hexstr",
+                                                "value" : "0x20"
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "right" : {
+                                        "type" : "hexstr",
+                                        "value" : "0x20"
+                                      }
+                                    }
+                                  },
+                                  "right" : {
+                                    "type" : "hexstr",
+                                    "value" : "0x3"
+                                  }
+                                }
+                              },
+                              "right" : {
+                                "type" : "hexstr",
+                                "value" : "0x20"
+                              }
+                            }
+                          },
+                          "right" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : "two_comp_mod",
+                              "left" : {
+                                "type" : "expression",
+                                "value" : {
+                                  "op" : ">>",
+                                  "left" : {
+                                    "type" : "expression",
+                                    "value" : {
+                                      "op" : "two_comp_mod",
+                                      "left" : {
+                                        "type" : "expression",
+                                        "value" : {
+                                          "op" : "*",
+                                          "left" : {
+                                            "type" : "hexstr",
+                                            "value" : "0x00000006"
+                                          },
+                                          "right" : {
+                                            "type" : "expression",
+                                            "value" : {
+                                              "op" : "two_comp_mod",
+                                              "left" : {
+                                                "type" : "expression",
+                                                "value" : {
+                                                  "op" : "&",
+                                                  "left" : {
+                                                    "type" : "expression",
+                                                    "value" : {
+                                                      "op" : "&",
+                                                      "left" : {
+                                                        "type" : "expression",
+                                                        "value" : {
+                                                          "op" : "-",
+                                                          "left" : {
+                                                            "type" : "hexstr",
+                                                            "value" : "0x002710"
+                                                          },
+                                                          "right" : {
+                                                            "type" : "field",
+                                                            "value" : ["standard_metadata", "deq_qdepth"]
+                                                          }
+                                                        }
+                                                      },
+                                                      "right" : {
+                                                        "type" : "hexstr",
+                                                        "value" : "0x07ffff"
+                                                      }
+                                                    }
+                                                  },
+                                                  "right" : {
+                                                    "type" : "hexstr",
+                                                    "value" : "0xffffffff"
+                                                  }
+                                                }
+                                              },
+                                              "right" : {
+                                                "type" : "hexstr",
+                                                "value" : "0x20"
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "right" : {
+                                        "type" : "hexstr",
+                                        "value" : "0x20"
+                                      }
+                                    }
+                                  },
+                                  "right" : {
+                                    "type" : "hexstr",
+                                    "value" : "0x6"
+                                  }
+                                }
+                              },
+                              "right" : {
+                                "type" : "hexstr",
+                                "value" : "0x20"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x20"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 647,
+            "column" : 39,
+            "source_fragment" : "= (bit<32>) diff; ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._status9"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x32"
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 648,
+            "column" : 32,
+            "source_fragment" : "= 50; //Hex =32 ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "compute_queue_usage_tmp"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "|",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["scalars", "compute_queue_usage_tmp"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xffffffffffffffffffff00000000"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : "&",
+                              "left" : {
+                                "type" : "expression",
+                                "value" : {
+                                  "op" : "two_comp_mod",
+                                  "left" : {
+                                    "type" : "expression",
+                                    "value" : {
+                                      "op" : "-",
+                                      "left" : {
+                                        "type" : "expression",
+                                        "value" : {
+                                          "op" : "two_comp_mod",
+                                          "left" : {
+                                            "type" : "expression",
+                                            "value" : {
+                                              "op" : ">>",
+                                              "left" : {
+                                                "type" : "expression",
+                                                "value" : {
+                                                  "op" : "two_comp_mod",
+                                                  "left" : {
+                                                    "type" : "expression",
+                                                    "value" : {
+                                                      "op" : "*",
+                                                      "left" : {
+                                                        "type" : "hexstr",
+                                                        "value" : "0x00000006"
+                                                      },
+                                                      "right" : {
+                                                        "type" : "expression",
+                                                        "value" : {
+                                                          "op" : "two_comp_mod",
+                                                          "left" : {
+                                                            "type" : "expression",
+                                                            "value" : {
+                                                              "op" : "&",
+                                                              "left" : {
+                                                                "type" : "expression",
+                                                                "value" : {
+                                                                  "op" : "&",
+                                                                  "left" : {
+                                                                    "type" : "expression",
+                                                                    "value" : {
+                                                                      "op" : "-",
+                                                                      "left" : {
+                                                                        "type" : "hexstr",
+                                                                        "value" : "0x002710"
+                                                                      },
+                                                                      "right" : {
+                                                                        "type" : "field",
+                                                                        "value" : ["standard_metadata", "deq_qdepth"]
+                                                                      }
+                                                                    }
+                                                                  },
+                                                                  "right" : {
+                                                                    "type" : "hexstr",
+                                                                    "value" : "0x07ffff"
+                                                                  }
+                                                                }
+                                                              },
+                                                              "right" : {
+                                                                "type" : "hexstr",
+                                                                "value" : "0xffffffff"
+                                                              }
+                                                            }
+                                                          },
+                                                          "right" : {
+                                                            "type" : "hexstr",
+                                                            "value" : "0x20"
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  "right" : {
+                                                    "type" : "hexstr",
+                                                    "value" : "0x20"
+                                                  }
+                                                }
+                                              },
+                                              "right" : {
+                                                "type" : "hexstr",
+                                                "value" : "0x3"
+                                              }
+                                            }
+                                          },
+                                          "right" : {
+                                            "type" : "hexstr",
+                                            "value" : "0x20"
+                                          }
+                                        }
+                                      },
+                                      "right" : {
+                                        "type" : "expression",
+                                        "value" : {
+                                          "op" : "two_comp_mod",
+                                          "left" : {
+                                            "type" : "expression",
+                                            "value" : {
+                                              "op" : ">>",
+                                              "left" : {
+                                                "type" : "expression",
+                                                "value" : {
+                                                  "op" : "two_comp_mod",
+                                                  "left" : {
+                                                    "type" : "expression",
+                                                    "value" : {
+                                                      "op" : "*",
+                                                      "left" : {
+                                                        "type" : "hexstr",
+                                                        "value" : "0x00000006"
+                                                      },
+                                                      "right" : {
+                                                        "type" : "expression",
+                                                        "value" : {
+                                                          "op" : "two_comp_mod",
+                                                          "left" : {
+                                                            "type" : "expression",
+                                                            "value" : {
+                                                              "op" : "&",
+                                                              "left" : {
+                                                                "type" : "expression",
+                                                                "value" : {
+                                                                  "op" : "&",
+                                                                  "left" : {
+                                                                    "type" : "expression",
+                                                                    "value" : {
+                                                                      "op" : "-",
+                                                                      "left" : {
+                                                                        "type" : "hexstr",
+                                                                        "value" : "0x002710"
+                                                                      },
+                                                                      "right" : {
+                                                                        "type" : "field",
+                                                                        "value" : ["standard_metadata", "deq_qdepth"]
+                                                                      }
+                                                                    }
+                                                                  },
+                                                                  "right" : {
+                                                                    "type" : "hexstr",
+                                                                    "value" : "0x07ffff"
+                                                                  }
+                                                                }
+                                                              },
+                                                              "right" : {
+                                                                "type" : "hexstr",
+                                                                "value" : "0xffffffff"
+                                                              }
+                                                            }
+                                                          },
+                                                          "right" : {
+                                                            "type" : "hexstr",
+                                                            "value" : "0x20"
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  "right" : {
+                                                    "type" : "hexstr",
+                                                    "value" : "0x20"
+                                                  }
+                                                }
+                                              },
+                                              "right" : {
+                                                "type" : "hexstr",
+                                                "value" : "0x6"
+                                              }
+                                            }
+                                          },
+                                          "right" : {
+                                            "type" : "hexstr",
+                                            "value" : "0x20"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "right" : {
+                                    "type" : "hexstr",
+                                    "value" : "0x20"
+                                  }
+                                }
+                              },
+                              "right" : {
+                                "type" : "hexstr",
+                                "value" : "0xffffffff"
+                              }
+                            }
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xffffffffffffffffffffffffffff"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x00000000000000000000ffffffff"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 651,
+            "column" : 20,
+            "source_fragment" : "tmp[31:0] = curr_credit"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "egress_register"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "compute_queue_usage_tmp_id"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "compute_queue_usage_tmp"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 652,
+            "column" : 20,
+            "source_fragment" : "egress_register.write((bit<32>)floID,tmp)"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "status_register"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "compute_queue_usage_tmp_id"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x32"
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 656,
+            "column" : 20,
+            "source_fragment" : "status_register.write((bit<32>)floID,tmp_status)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "clone580",
+      "id" : 24,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "compute_queue_usage_tmp_id"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "cloning_flowID"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 580,
+            "column" : 10,
+            "source_fragment" : "cloning_flowID.read(tmp_id,(bit<32>) 0)"
+          }
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "compute_queue_usage_tmp"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "egress_register"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "compute_queue_usage_tmp_id"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 583,
+            "column" : 10,
+            "source_fragment" : "egress_register.read(tmp,(bit<32>) floID)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "clone813",
+      "id" : 25,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_id_0"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._flowID4"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 813,
+            "column" : 16,
+            "source_fragment" : "tmp_id[31:0]= meta"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "cloning_flowID"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._flowID4"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 814,
+            "column" : 16,
+            "source_fragment" : "cloning_flowID.write((bit<32>) 0,tmp_id)"
+          }
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_0"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "egress_register"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._flowID4"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 817,
+            "column" : 16,
+            "source_fragment" : "egress_register.read(tmp,(bit<32>) meta.flowID)"
+          }
+        }
+      ]
+    }
+  ],
+  "pipelines" : [
+    {
+      "name" : "ingress",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+        "line" : 387,
+        "column" : 8,
+        "source_fragment" : "MyIngress"
+      },
+      "init_table" : "node_2",
+      "tables" : [
+        {
+          "name" : "MyIngress.arp_lpm",
+          "id" : 0,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 455,
+            "column" : 6,
+            "source_fragment" : "arp_lpm"
+          },
+          "key" : [
+            {
+              "match_type" : "lpm",
+              "name" : "hdr.arp.target_pAddress",
+              "target" : ["arp", "target_pAddress"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "lpm",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [6, 3, 1],
+          "actions" : ["MyIngress.arp_forward", "MyIngress.drop", "NoAction"],
+          "base_default_next" : "MyIngress.ingress_debug",
+          "next_tables" : {
+            "MyIngress.arp_forward" : "MyIngress.ingress_debug",
+            "MyIngress.drop" : "MyIngress.ingress_debug",
+            "NoAction" : "MyIngress.ingress_debug"
+          },
+          "default_entry" : {
+            "action_id" : 3,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "MyIngress.ipv4_lpm",
+          "id" : 1,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 472,
+            "column" : 6,
+            "source_fragment" : "ipv4_lpm"
+          },
+          "key" : [
+            {
+              "match_type" : "exact",
+              "name" : "hdr.ipv4.srcAddr",
+              "target" : ["ipv4", "srcAddr"],
+              "mask" : null
+            },
+            {
+              "match_type" : "exact",
+              "name" : "hdr.ipv4.dstAddr",
+              "target" : ["ipv4", "dstAddr"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [4, 5, 2],
+          "actions" : ["MyIngress.drop", "MyIngress.ipv4_forward", "NoAction"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "__HIT__" : "node_6",
+            "__MISS__" : "MyIngress.ingress_debug"
+          },
+          "default_entry" : {
+            "action_id" : 4,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_clone294",
+          "id" : 2,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 294,
+            "column" : 8,
+            "source_fragment" : "ingress_register.read(tmp, (bit<32>) flowid); ..."
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [9],
+          "actions" : ["clone294"],
+          "base_default_next" : "node_9",
+          "next_tables" : {
+            "clone294" : "node_9"
+          },
+          "default_entry" : {
+            "action_id" : 9,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_clone315",
+          "id" : 3,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 315,
+            "column" : 8,
+            "source_fragment" : "ingress_register.read(tmp, flowid); ..."
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [7],
+          "actions" : ["clone315"],
+          "base_default_next" : "node_12",
+          "next_tables" : {
+            "clone315" : "node_12"
+          },
+          "default_entry" : {
+            "action_id" : 7,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_clone371",
+          "id" : 4,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 371,
+            "column" : 8,
+            "source_fragment" : "ingress_register.read(tmp, (bit<32>) flowid); ..."
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [8],
+          "actions" : ["clone371"],
+          "base_default_next" : "node_12",
+          "next_tables" : {
+            "clone371" : "node_12"
+          },
+          "default_entry" : {
+            "action_id" : 8,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_clone340",
+          "id" : 5,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 340,
+            "column" : 8,
+            "source_fragment" : "floWeight_register.read(floWeight, (bit<32>) flowid); ..."
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [10],
+          "actions" : ["clone340"],
+          "base_default_next" : "MyIngress.ingress_debug",
+          "next_tables" : {
+            "clone340" : "MyIngress.ingress_debug"
+          },
+          "default_entry" : {
+            "action_id" : 10,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "MyIngress.ingress_debug",
+          "id" : 6,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 398,
+            "column" : 9,
+            "source_fragment" : "ingress_debug"
+          },
+          "key" : [
+            {
+              "match_type" : "exact",
+              "name" : "meta.drop",
+              "target" : ["scalars", "metadata._drop10"],
+              "mask" : null
+            },
+            {
+              "match_type" : "exact",
+              "name" : "meta.floWeight",
+              "target" : ["scalars", "metadata._floWeight5"],
+              "mask" : null
+            },
+            {
+              "match_type" : "exact",
+              "name" : "meta.switch_id",
+              "target" : ["scalars", "metadata._switch_id3"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [0],
+          "actions" : ["NoAction"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "NoAction" : null
+          },
+          "default_entry" : {
+            "action_id" : 0,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        }
+      ],
+      "action_profiles" : [],
+      "conditionals" : [
+        {
+          "name" : "node_2",
+          "id" : 0,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 493,
+            "column" : 12,
+            "source_fragment" : "hdr.arp.isValid()"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "d2b",
+              "left" : null,
+              "right" : {
+                "type" : "field",
+                "value" : ["arp", "$valid$"]
+              }
+            }
+          },
+          "true_next" : "MyIngress.arp_lpm",
+          "false_next" : "node_4"
+        },
+        {
+          "name" : "node_4",
+          "id" : 1,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 499,
+            "column" : 17,
+            "source_fragment" : "hdr.ipv4.isValid()"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "d2b",
+              "left" : null,
+              "right" : {
+                "type" : "field",
+                "value" : ["ipv4", "$valid$"]
+              }
+            }
+          },
+          "true_next" : "MyIngress.ipv4_lpm",
+          "false_next" : "MyIngress.ingress_debug"
+        },
+        {
+          "name" : "node_6",
+          "id" : 2,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 504,
+            "column" : 20,
+            "source_fragment" : "meta.switch_type==0"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["scalars", "metadata._switch_type6"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x00"
+              }
+            }
+          },
+          "true_next" : "node_7",
+          "false_next" : "node_12"
+        },
+        {
+          "name" : "node_7",
+          "id" : 3,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 506,
+            "column" : 25,
+            "source_fragment" : "hdr.credit.isValid()"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "d2b",
+              "left" : null,
+              "right" : {
+                "type" : "field",
+                "value" : ["credit", "$valid$"]
+              }
+            }
+          },
+          "false_next" : "tbl_clone294",
+          "true_next" : "node_12"
+        },
+        {
+          "name" : "node_9",
+          "id" : 4,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 508,
+            "column" : 28,
+            "source_fragment" : "meta.available_cred <= 0"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "<=",
+              "left" : {
+                "type" : "field",
+                "value" : ["scalars", "metadata._available_cred7"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x00000000"
+              }
+            }
+          },
+          "true_next" : "tbl_clone315",
+          "false_next" : "tbl_clone371"
+        },
+        {
+          "name" : "node_12",
+          "id" : 5,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 520,
+            "column" : 19,
+            "source_fragment" : "meta.switch_type==2"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["scalars", "metadata._switch_type6"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x02"
+              }
+            }
+          },
+          "true_next" : "node_13",
+          "false_next" : "MyIngress.ingress_debug"
+        },
+        {
+          "name" : "node_13",
+          "id" : 6,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 522,
+            "column" : 23,
+            "source_fragment" : "hdr.credit.isValid()"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "d2b",
+              "left" : null,
+              "right" : {
+                "type" : "field",
+                "value" : ["credit", "$valid$"]
+              }
+            }
+          },
+          "true_next" : "tbl_clone340",
+          "false_next" : "MyIngress.ingress_debug"
+        }
+      ]
+    },
+    {
+      "name" : "egress",
+      "id" : 1,
+      "source_info" : {
+        "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+        "line" : 664,
+        "column" : 8,
+        "source_fragment" : "MyEgress"
+      },
+      "init_table" : "node_18",
+      "tables" : [
+        {
+          "name" : "tbl_clone776",
+          "id" : 7,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 776,
+            "column" : 12,
+            "source_fragment" : "cloning_flowID.read(tmp_id,(bit<32>) 0); ..."
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [18],
+          "actions" : ["clone776"],
+          "base_default_next" : "node_20",
+          "next_tables" : {
+            "clone776" : "node_20"
+          },
+          "default_entry" : {
+            "action_id" : 18,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_truncate_packet",
+          "id" : 8,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 787,
+            "column" : 12,
+            "source_fragment" : "truncate_packet(ipv4_packet_len)"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [15],
+          "actions" : ["MyEgress.truncate_packet"],
+          "base_default_next" : "tbl_append_credit_header",
+          "next_tables" : {
+            "MyEgress.truncate_packet" : "tbl_append_credit_header"
+          },
+          "default_entry" : {
+            "action_id" : 15,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_append_credit_header",
+          "id" : 9,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 788,
+            "column" : 12,
+            "source_fragment" : "append_credit_header(floID,credit_val,stat)"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [16],
+          "actions" : ["MyEgress.append_credit_header"],
+          "base_default_next" : "tbl_append_option_header",
+          "next_tables" : {
+            "MyEgress.append_credit_header" : "tbl_append_option_header"
+          },
+          "default_entry" : {
+            "action_id" : 16,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_append_option_header",
+          "id" : 10,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 789,
+            "column" : 12,
+            "source_fragment" : "append_option_header()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [17],
+          "actions" : ["MyEgress.append_option_header"],
+          "base_default_next" : "tbl_swap_addr",
+          "next_tables" : {
+            "MyEgress.append_option_header" : "tbl_swap_addr"
+          },
+          "default_entry" : {
+            "action_id" : 17,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_swap_addr",
+          "id" : 11,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 790,
+            "column" : 12,
+            "source_fragment" : "swap_addr()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [13],
+          "actions" : ["MyEgress.swap_addr"],
+          "base_default_next" : "tbl_clear_ttl",
+          "next_tables" : {
+            "MyEgress.swap_addr" : "tbl_clear_ttl"
+          },
+          "default_entry" : {
+            "action_id" : 13,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_clear_ttl",
+          "id" : 12,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 791,
+            "column" : 12,
+            "source_fragment" : "clear_ttl()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [12],
+          "actions" : ["MyEgress.clear_ttl"],
+          "base_default_next" : "tbl_clone796",
+          "next_tables" : {
+            "MyEgress.clear_ttl" : "tbl_clone796"
+          },
+          "default_entry" : {
+            "action_id" : 12,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_clone796",
+          "id" : 13,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 796,
+            "column" : 12,
+            "source_fragment" : "egress_register.read(tmp,(bit<32>) floID); ..."
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [19],
+          "actions" : ["clone796"],
+          "base_default_next" : "MyEgress.egress_debug",
+          "next_tables" : {
+            "clone796" : "MyEgress.egress_debug"
+          },
+          "default_entry" : {
+            "action_id" : 19,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_clone813",
+          "id" : 14,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 813,
+            "column" : 28,
+            "source_fragment" : "= meta.flowID; ..."
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [25],
+          "actions" : ["clone813"],
+          "base_default_next" : "node_29",
+          "next_tables" : {
+            "clone813" : "node_29"
+          },
+          "default_entry" : {
+            "action_id" : 25,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_clone580",
+          "id" : 15,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 580,
+            "column" : 10,
+            "source_fragment" : "cloning_flowID.read(tmp_id,(bit<32>) 0); ..."
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [24],
+          "actions" : ["clone580"],
+          "base_default_next" : "node_33",
+          "next_tables" : {
+            "clone580" : "node_33"
+          },
+          "default_entry" : {
+            "action_id" : 24,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_clone593",
+          "id" : 16,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 593,
+            "column" : 35,
+            "source_fragment" : "=0; ..."
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [20],
+          "actions" : ["clone593"],
+          "base_default_next" : "tbl_clone_packet",
+          "next_tables" : {
+            "clone593" : "tbl_clone_packet"
+          },
+          "default_entry" : {
+            "action_id" : 20,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_clone615",
+          "id" : 17,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 615,
+            "column" : 39,
+            "source_fragment" : "= (bit<32>) diff; ..."
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [21],
+          "actions" : ["clone615"],
+          "base_default_next" : "tbl_clone_packet",
+          "next_tables" : {
+            "clone615" : "tbl_clone_packet"
+          },
+          "default_entry" : {
+            "action_id" : 21,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_clone630",
+          "id" : 18,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 630,
+            "column" : 39,
+            "source_fragment" : "= computed_credits; //(bit<32>) (queu_depth_limit - standard_metadata.deq_qdepth); ..."
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [22],
+          "actions" : ["clone630"],
+          "base_default_next" : "tbl_clone_packet",
+          "next_tables" : {
+            "clone630" : "tbl_clone_packet"
+          },
+          "default_entry" : {
+            "action_id" : 22,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_clone647",
+          "id" : 19,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 647,
+            "column" : 39,
+            "source_fragment" : "= (bit<32>) diff; ..."
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [23],
+          "actions" : ["clone647"],
+          "base_default_next" : "tbl_clone_packet",
+          "next_tables" : {
+            "clone647" : "tbl_clone_packet"
+          },
+          "default_entry" : {
+            "action_id" : 23,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_clone_packet",
+          "id" : 20,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 838,
+            "column" : 20,
+            "source_fragment" : "clone_packet()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [14],
+          "actions" : ["MyEgress.clone_packet"],
+          "base_default_next" : "MyEgress.egress_debug",
+          "next_tables" : {
+            "MyEgress.clone_packet" : "MyEgress.egress_debug"
+          },
+          "default_entry" : {
+            "action_id" : 14,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "MyEgress.egress_debug",
+          "id" : 21,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 680,
+            "column" : 9,
+            "source_fragment" : "egress_debug"
+          },
+          "key" : [
+            {
+              "match_type" : "exact",
+              "name" : "meta.switch_id",
+              "target" : ["scalars", "metadata._switch_id3"],
+              "mask" : null
+            },
+            {
+              "match_type" : "exact",
+              "name" : "hdr.credit.flow_id",
+              "target" : ["credit", "flow_id"],
+              "mask" : null
+            },
+            {
+              "match_type" : "exact",
+              "name" : "hdr.credit.status",
+              "target" : ["credit", "status"],
+              "mask" : null
+            },
+            {
+              "match_type" : "exact",
+              "name" : "hdr.credit.creditValue",
+              "target" : ["credit", "creditValue"],
+              "mask" : null
+            },
+            {
+              "match_type" : "exact",
+              "name" : "meta.computed_cred",
+              "target" : ["scalars", "metadata._computed_cred8"],
+              "mask" : null
+            },
+            {
+              "match_type" : "exact",
+              "name" : "meta.status",
+              "target" : ["scalars", "metadata._status9"],
+              "mask" : null
+            },
+            {
+              "match_type" : "exact",
+              "name" : "meta.drop",
+              "target" : ["scalars", "metadata._drop10"],
+              "mask" : null
+            },
+            {
+              "match_type" : "exact",
+              "name" : "meta.switch_type",
+              "target" : ["scalars", "metadata._switch_type6"],
+              "mask" : null
+            },
+            {
+              "match_type" : "exact",
+              "name" : "standard_metadata.egress_global_timestamp",
+              "target" : ["standard_metadata", "egress_global_timestamp"],
+              "mask" : null
+            },
+            {
+              "match_type" : "exact",
+              "name" : "standard_metadata.packet_length",
+              "target" : ["standard_metadata", "packet_length"],
+              "mask" : null
+            },
+            {
+              "match_type" : "exact",
+              "name" : "meta.flowID",
+              "target" : ["scalars", "metadata._flowID4"],
+              "mask" : null
+            },
+            {
+              "match_type" : "exact",
+              "name" : "hdr.ipv4.protocol",
+              "target" : ["ipv4", "protocol"],
+              "mask" : null
+            },
+            {
+              "match_type" : "exact",
+              "name" : "hdr.ipv4.srcAddr",
+              "target" : ["ipv4", "srcAddr"],
+              "mask" : null
+            },
+            {
+              "match_type" : "exact",
+              "name" : "hdr.ipv4.dstAddr",
+              "target" : ["ipv4", "dstAddr"],
+              "mask" : null
+            },
+            {
+              "match_type" : "exact",
+              "name" : "hdr.ethernet.etherType",
+              "target" : ["ethernet", "etherType"],
+              "mask" : null
+            },
+            {
+              "match_type" : "exact",
+              "name" : "standard_metadata.deq_qdepth",
+              "target" : ["standard_metadata", "deq_qdepth"],
+              "mask" : null
+            },
+            {
+              "match_type" : "exact",
+              "name" : "standard_metadata.enq_qdepth",
+              "target" : ["standard_metadata", "enq_qdepth"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [11],
+          "actions" : ["NoAction"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "NoAction" : null
+          },
+          "default_entry" : {
+            "action_id" : 11,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        }
+      ],
+      "action_profiles" : [],
+      "conditionals" : [
+        {
+          "name" : "node_18",
+          "id" : 7,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 772,
+            "column" : 12,
+            "source_fragment" : "standard_metadata.instance_type == 2"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["standard_metadata", "instance_type"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x00000002"
+              }
+            }
+          },
+          "true_next" : "tbl_clone776",
+          "false_next" : "node_27"
+        },
+        {
+          "name" : "node_20",
+          "id" : 8,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 786,
+            "column" : 15,
+            "source_fragment" : "hdr.ipv4.isValid() && hdr.ethernet.etherType == TYPE_IPV4"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "and",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "d2b",
+                  "left" : null,
+                  "right" : {
+                    "type" : "field",
+                    "value" : ["ipv4", "$valid$"]
+                  }
+                }
+              },
+              "right" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["ethernet", "etherType"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x0800"
+                  }
+                }
+              }
+            }
+          },
+          "true_next" : "tbl_truncate_packet",
+          "false_next" : "tbl_clone796"
+        },
+        {
+          "name" : "node_27",
+          "id" : 9,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 806,
+            "column" : 16,
+            "source_fragment" : "meta.switch_type==2"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["scalars", "metadata._switch_type6"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x02"
+              }
+            }
+          },
+          "true_next" : "tbl_clone813",
+          "false_next" : "MyEgress.egress_debug"
+        },
+        {
+          "name" : "node_29",
+          "id" : 10,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 828,
+            "column" : 19,
+            "source_fragment" : "cloning_interval> emptying_queue_time"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : ">",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "-",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["standard_metadata", "egress_global_timestamp"]
+                      },
+                      "right" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : "&",
+                              "left" : {
+                                "type" : "expression",
+                                "value" : {
+                                  "op" : ">>",
+                                  "left" : {
+                                    "type" : "field",
+                                    "value" : ["scalars", "tmp_0"]
+                                  },
+                                  "right" : {
+                                    "type" : "hexstr",
+                                    "value" : "0x20"
+                                  }
+                                }
+                              },
+                              "right" : {
+                                "type" : "hexstr",
+                                "value" : "0xffffffffffffffffffffffffffff"
+                              }
+                            }
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xffffffffffff"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffffffff"
+                  }
+                }
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x0000002dc6c0"
+              }
+            }
+          },
+          "true_next" : "node_30",
+          "false_next" : "MyEgress.egress_debug"
+        },
+        {
+          "name" : "node_30",
+          "id" : 11,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 831,
+            "column" : 21,
+            "source_fragment" : "hdr.credit.isValid()"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "d2b",
+              "left" : null,
+              "right" : {
+                "type" : "field",
+                "value" : ["credit", "$valid$"]
+              }
+            }
+          },
+          "false_next" : "node_31",
+          "true_next" : "MyEgress.egress_debug"
+        },
+        {
+          "name" : "node_31",
+          "id" : 12,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 833,
+            "column" : 23,
+            "source_fragment" : "hdr.ipv4.isValid()&& hdr.ethernet.etherType == TYPE_IPV4"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "and",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "d2b",
+                  "left" : null,
+                  "right" : {
+                    "type" : "field",
+                    "value" : ["ipv4", "$valid$"]
+                  }
+                }
+              },
+              "right" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["ethernet", "etherType"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x0800"
+                  }
+                }
+              }
+            }
+          },
+          "true_next" : "tbl_clone580",
+          "false_next" : "MyEgress.egress_debug"
+        },
+        {
+          "name" : "node_33",
+          "id" : 13,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 591,
+            "column" : 14,
+            "source_fragment" : "(int<19>)standard_metadata.deq_qdepth >= (int<19>)queu_depth_limit"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : ">=",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "two_comp_mod",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "deq_qdepth"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x13"
+                  }
+                }
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x002710"
+              }
+            }
+          },
+          "true_next" : "tbl_clone593",
+          "false_next" : "node_35"
+        },
+        {
+          "name" : "node_35",
+          "id" : 14,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 610,
+            "column" : 20,
+            "source_fragment" : "standard_metadata.deq_qdepth>= ((8 * queu_depth_limit)>> 3) - ((8 * queu_depth_limit) >> 6)"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : ">=",
+              "left" : {
+                "type" : "field",
+                "value" : ["standard_metadata", "deq_qdepth"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x00222e"
+              }
+            }
+          },
+          "true_next" : "tbl_clone615",
+          "false_next" : "node_37"
+        },
+        {
+          "name" : "node_37",
+          "id" : 15,
+          "source_info" : {
+            "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+            "line" : 629,
+            "column" : 25,
+            "source_fragment" : "standard_metadata.deq_qdepth <= (queu_depth_limit >> 3)-(queu_depth_limit >> 6)"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "<=",
+              "left" : {
+                "type" : "field",
+                "value" : ["standard_metadata", "deq_qdepth"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x000446"
+              }
+            }
+          },
+          "true_next" : "tbl_clone630",
+          "false_next" : "tbl_clone647"
+        }
+      ]
+    }
+  ],
+  "checksums" : [
+    {
+      "name" : "cksum",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4",
+        "line" : 864,
+        "column" : 1,
+        "source_fragment" : "update_checksum( ..."
+      },
+      "target" : ["ipv4", "hdrChecksum"],
+      "type" : "generic",
+      "calculation" : "calc",
+      "verify" : false,
+      "update" : true,
+      "if_cond" : {
+        "type" : "expression",
+        "value" : {
+          "op" : "d2b",
+          "left" : null,
+          "right" : {
+            "type" : "field",
+            "value" : ["ipv4", "$valid$"]
+          }
+        }
+      }
+    }
+  ],
+  "force_arith" : [],
+  "extern_instances" : [],
+  "field_aliases" : [
+    [
+      "queueing_metadata.enq_timestamp",
+      ["standard_metadata", "enq_timestamp"]
+    ],
+    [
+      "queueing_metadata.enq_qdepth",
+      ["standard_metadata", "enq_qdepth"]
+    ],
+    [
+      "queueing_metadata.deq_timedelta",
+      ["standard_metadata", "deq_timedelta"]
+    ],
+    [
+      "queueing_metadata.deq_qdepth",
+      ["standard_metadata", "deq_qdepth"]
+    ],
+    [
+      "intrinsic_metadata.ingress_global_timestamp",
+      ["standard_metadata", "ingress_global_timestamp"]
+    ],
+    [
+      "intrinsic_metadata.egress_global_timestamp",
+      ["standard_metadata", "egress_global_timestamp"]
+    ],
+    [
+      "intrinsic_metadata.mcast_grp",
+      ["standard_metadata", "mcast_grp"]
+    ],
+    [
+      "intrinsic_metadata.egress_rid",
+      ["standard_metadata", "egress_rid"]
+    ],
+    [
+      "intrinsic_metadata.priority",
+      ["standard_metadata", "priority"]
+    ]
+  ],
+  "program" : "/root/p4-switch-project/credits-based-flow-control-main/mini_net/credit_topo/clone.p4i",
+  "__meta__" : {
+    "version" : [2, 23],
+    "compiler" : "https://github.com/p4lang/p4c"
+  }
+}
