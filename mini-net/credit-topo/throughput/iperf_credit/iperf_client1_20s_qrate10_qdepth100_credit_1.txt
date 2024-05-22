@@ -1,0 +1,29 @@
+Connecting to host h2, port 5201
+[  7] local 160.16.11.100 port 57574 connected to 160.16.31.100 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  7]   0.00-1.00   sec   314 KBytes  2.57 Mbits/sec    0   92.3 KBytes       
+[  7]   1.00-2.00   sec   166 KBytes  1.36 Mbits/sec    0    120 KBytes       
+[  7]   2.00-3.00   sec  0.00 Bytes  0.00 bits/sec    0    185 KBytes       
+[  7]   3.00-4.00   sec   341 KBytes  2.80 Mbits/sec    0    221 KBytes       
+[  7]   4.00-5.00   sec  0.00 Bytes  0.00 bits/sec    0    221 KBytes       
+[  7]   5.00-6.00   sec  0.00 Bytes  0.00 bits/sec    0    240 KBytes       
+[  7]   6.00-7.00   sec   388 KBytes  3.18 Mbits/sec    0    268 KBytes       
+[  7]   7.00-8.00   sec  0.00 Bytes  0.00 bits/sec    0    295 KBytes       
+[  7]   8.00-9.00   sec  0.00 Bytes  0.00 bits/sec    0    314 KBytes       
+[  7]   9.00-10.00  sec   443 KBytes  3.63 Mbits/sec    0    341 KBytes       
+[  7]  10.00-11.00  sec  0.00 Bytes  0.00 bits/sec    0    369 KBytes       
+[  7]  11.00-12.00  sec  0.00 Bytes  0.00 bits/sec    0    397 KBytes       
+[  7]  12.00-13.00  sec  0.00 Bytes  0.00 bits/sec    0    424 KBytes       
+[  7]  13.00-14.00  sec   554 KBytes  4.54 Mbits/sec    0    452 KBytes       
+[  7]  14.00-15.00  sec  0.00 Bytes  0.00 bits/sec    0    471 KBytes       
+[  7]  15.00-16.00  sec  0.00 Bytes  0.00 bits/sec    0    498 KBytes       
+[  7]  16.00-17.00  sec  0.00 Bytes  0.00 bits/sec    0    526 KBytes       
+[  7]  17.00-18.00  sec   664 KBytes  5.45 Mbits/sec    0    554 KBytes       
+[  7]  18.00-19.00  sec  0.00 Bytes  0.00 bits/sec    0    581 KBytes       
+[  7]  19.00-20.00  sec  0.00 Bytes  0.00 bits/sec    0    618 KBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  7]   0.00-20.00  sec  2.80 MBytes  1.18 Mbits/sec    0             sender
+[  7]   0.00-29.00  sec  1.14 MBytes   328 Kbits/sec                  receiver
+
+iperf Done.
