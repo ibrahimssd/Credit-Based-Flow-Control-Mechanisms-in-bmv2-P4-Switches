@@ -1,0 +1,8 @@
+set_queue_depth 100 1
+set_queue_depth 100 2
+set_queue_depth 100 3
+set_queue_depth 100 4
+set_queue_rate 10 1
+set_queue_rate 10 2
+set_queue_rate 10 3
+set_queue_rate 10 4 

@@ -1,0 +1,13 @@
+table_add MyIngress.arp_lpm MyIngress.arp_forward 172.16.11.100/32 => 3
+table_add MyIngress.arp_lpm MyIngress.arp_forward 172.16.12.100/32 => 3
+table_add MyIngress.arp_lpm MyIngress.arp_forward 172.16.20.100/32 => 3
+table_add MyIngress.arp_lpm MyIngress.arp_forward 172.16.31.100/32 => 1
+table_add MyIngress.arp_lpm MyIngress.arp_forward 172.16.40.100/32 => 4
+table_add MyIngress.arp_lpm MyIngress.arp_forward 172.16.32.100/32 => 2
+table_add MyIngress.ipv4_lpm MyIngress.ipv4_forward 172.16.11.100/32 => 3 
+table_add MyIngress.ipv4_lpm MyIngress.ipv4_forward 172.16.12.100/32 => 3 
+table_add MyIngress.ipv4_lpm MyIngress.ipv4_forward 172.16.20.100/32 => 3 
+table_add MyIngress.ipv4_lpm MyIngress.ipv4_forward 172.16.31.100/32 => 1 
+table_add MyIngress.ipv4_lpm MyIngress.ipv4_forward 172.16.40.100/32 => 4 
+table_add MyIngress.ipv4_lpm MyIngress.ipv4_forward 172.16.32.100/32 => 2 
+
