@@ -1,0 +1,8 @@
+------------------------------------------------------------
+Client connecting to h2, UDP port 5001
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  5] local 160.16.12.100 port 49698 connected with 160.16.31.100 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  5] 0.0000-60.0127 sec  7.50 MBytes  1.05 Mbits/sec
+[  5] Sent 5354 datagrams
