@@ -1,0 +1,9 @@
+table_add arp_lpm arp_forward 10.0.0.1/32 => 1
+table_add arp_lpm arp_forward 10.0.0.2/32 => 2
+table_add arp_lpm arp_forward 10.0.0.3/32 => 3
+table_add arp_lpm arp_forward 10.0.0.4/32 => 4
+table_add ipv4_lpm ipv4_forward 10.0.0.1/32 => 1
+table_add ipv4_lpm ipv4_forward 10.0.0.2/32 => 2
+table_add ipv4_lpm ipv4_forward 10.0.0.3/32 => 3
+table_add ipv4_lpm ipv4_forward 10.0.0.4/32 => 4
+
